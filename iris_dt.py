@@ -18,9 +18,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Define the parameter for the Random Forest Model 
 max_depth = 15
 
+import dagshub
+dagshub.init(repo_owner='mayurwasake', repo_name='mlflow-dagshub-demo', mlflow=True)
 
 # apply mlflow to track the model training
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+mlflow.set_tracking_uri("https://dagshub.com/mayurwasake/mlflow-dagshub-demo.mlflow")
 mlflow.set_experiment("iris-dt")
 
 with mlflow.start_run():
